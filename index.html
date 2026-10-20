@@ -49,6 +49,7 @@ const serverLinks = [
 "https://discord.gg/HZHQm6t6Z",
 "https://discord.gg/p6dJCyS2Z"
 ];
+const serverNames = ["Arcane Universe", "Featured Server 02", "Featured Server 03", "Featured Server 04", "Featured Server 05", "Featured Server 06", "Featured Server 07"];
 const descriptions = [
 "Community server • Join to explore the community.",
 "Discord community • Check the server for details and updates.",
@@ -66,7 +67,7 @@ serverLinks.forEach((url,i)=>{
  const num=document.createElement("span");num.className="number";num.textContent=String(i+1).padStart(2,"0");
  top.append(pill,num);
  const icon=document.createElement("div");icon.className="server-icon";icon.textContent="♛";
- const title=document.createElement("h3");title.textContent="Featured Server "+String(i+1).padStart(2,"0");
+ const title=document.createElement("h3");title.textContent=serverNames[i];
  const desc=document.createElement("p");desc.textContent=descriptions[i];
  const link=document.createElement("a");link.className="card-link";link.href=url;link.target="_blank";link.rel="noopener noreferrer";link.textContent="JOIN SERVER ↗";
  card.append(top,icon,title,desc,link);grid.append(card);
