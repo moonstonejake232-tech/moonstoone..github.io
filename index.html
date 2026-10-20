@@ -19,14 +19,15 @@
 <body>
 <header class="topbar"><div class="wrap nav">
 <a class="brand" href="#home" aria-label="Nene home"><div class="avatar">N</div><div><div class="brand-name">Nene <span class="role">SERVER MGT & DEV</span></div><div class="sub">Bot Developer • Server Manager • Moderator</div></div></a>
-<nav class="links" aria-label="Main navigation"><a class="active" href="#home">Home</a><a href="#servers">Servers</a><a href="#services">Services</a><a href="#bots">Bots</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
-<div class="music" aria-label="Music player"><button class="play" id="playBtn" aria-label="Play preview">▶</button><div style="min-width:0;flex:1"><div class="tracktitle" id="trackTitle">Zankyosanka</div><div class="trackartist" id="trackArtist">Aimer • Track 1 of 4</div><div class="progress"><span id="progressBar"></span></div></div><button class="vol" id="nextBtn" aria-label="Next song">♫</button></div>
+<nav class="links" aria-label="Main navigation"><a class="active" href="#home">Home</a><a href="#servers">Servers</a><a href="#music">Music</a><a href="#services">Services</a><a href="#bots">Bots</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
+<a class="music" href="#music" aria-label="Jump to Juice WRLD Spotify player"><span class="play" aria-hidden="true">♫</span><span style="min-width:0;flex:1"><span class="tracktitle" style="display:block">Juice WRLD</span><span class="trackartist" style="display:block">Listen on Spotify</span></span><span class="vol" aria-hidden="true">↘</span></a>
 </div></header>
 <main id="home" class="wrap">
 <section class="hero">
 <div class="stats"><div class="stat"><strong>20+</strong><div>SERVERS MANAGED</div></div><div class="stat"><strong>3+</strong><div>PROJECTS TESTED</div></div><div class="stat"><strong>15+</strong><div>TEAM MEMBERS SUPPORTED</div></div></div>
 <div class="feature"><div><div class="eyebrow"><span class="dot"></span> Portfolio • Community Operations</div><h1>Building better communities with <span>precision.</span></h1><p>Discord server management, moderation, community setup, and bot development—focused on organized systems, smooth workflows, and welcoming communities.</p></div><div class="actions"><a class="btn primary" href="#servers">EXPLORE SERVERS ↗</a><a class="btn secondary" href="#contact">GET IN TOUCH</a></div></div>
 </section>
+<section id="music" class="section"><div class="section-head"><div><h2>♫ Juice WRLD</h2><p>Listen through Spotify’s official embedded player.</p></div><a class="btn secondary" href="https://open.spotify.com/artist/4MCBfE4596Uoi2O4DtmEMz" target="_blank" rel="noopener noreferrer">OPEN IN SPOTIFY ↗</a></div><div class="spotify-embed" style="border:1px solid var(--line);border-radius:20px;padding:10px;background:linear-gradient(145deg,rgba(21,20,16,.96),rgba(11,11,10,.96));box-shadow:var(--shadow)"><iframe title="Juice WRLD on Spotify" style="border-radius:12px;display:block" src="https://open.spotify.com/embed/artist/4MCBfE4596Uoi2O4DtmEMz?utm_source=generator&amp;theme=0" width="100%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></div><p style="font-size:12px;color:var(--muted);line-height:1.7;margin:12px 2px 0">Playback is provided by Spotify. Depending on the visitor’s account and Spotify settings, they may need to sign in or open Spotify to play full tracks.</p></section>
 <section id="servers" class="section"><div class="section-head"><div><h2>♛ Discord Communities</h2><p>Explore the communities and servers featured in my portfolio.</p></div></div><div class="server-grid" id="serverGrid"></div></section>
 <section id="services" class="section"><div class="section-head"><div><h2>What I Do</h2><p>Practical support for communities, projects, and Discord teams.</p></div></div><div class="two-col">
 <article class="service"><div class="symbol">♜</div><h3>Server Management</h3><p>Channel organization, role structure, permissions, onboarding, and keeping community systems organized.</p></article>
@@ -73,20 +74,6 @@ serverLinks.forEach((url,i)=>{
  card.append(top,icon,title,desc,link);grid.append(card);
 });
 document.getElementById("year").textContent=new Date().getFullYear();
-// These are track labels and links only. Playback is not faked: the player opens an official YouTube search for the selected track.
-const tracks=[
- {title:"Zankyosanka",artist:"Aimer",query:"Aimer Zankyosanka official"},
- {title:"Kaikai Kitan",artist:"Eve",query:"Eve Kaikai Kitan official"},
- {title:"KICK BACK",artist:"Kenshi Yonezu",query:"Kenshi Yonezu KICK BACK official"},
- {title:"Mukanjyo",artist:"Survive Said The Prophet",query:"Survive Said The Prophet Mukanjyo official"}
-];
-let trackIndex=0;
-const titleEl=document.getElementById("trackTitle"),artistEl=document.getElementById("trackArtist"),playBtn=document.getElementById("playBtn"),nextBtn=document.getElementById("nextBtn"),bar=document.getElementById("progressBar");
-function renderTrack(){const t=tracks[trackIndex];titleEl.textContent=t.title;artistEl.textContent=t.artist+" • Track "+(trackIndex+1)+" of "+tracks.length;bar.style.width="0%";playBtn.textContent="▶";playBtn.setAttribute("aria-label","Open track");}
-function openTrack(){const t=tracks[trackIndex];window.open("https://www.youtube.com/results?search_query="+encodeURIComponent(t.query),"_blank","noopener,noreferrer");}
-playBtn.addEventListener("click",openTrack);
-nextBtn.addEventListener("click",()=>{trackIndex=(trackIndex+1)%tracks.length;renderTrack();});
-titleEl.addEventListener("click",openTrack);titleEl.style.cursor="pointer";
 document.querySelectorAll('.links a').forEach(a=>a.addEventListener('click',()=>{document.querySelectorAll('.links a').forEach(x=>x.classList.remove('active'));a.classList.add('active')}));
 </script>
 </body>
